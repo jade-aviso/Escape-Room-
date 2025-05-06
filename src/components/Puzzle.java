@@ -1,4 +1,4 @@
-package src;
+package components;
 
 public abstract class Puzzle {
     protected String hint;

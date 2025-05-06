@@ -1,5 +1,6 @@
-package src;
 
+
+import components.Puzzle;
 import components.rooms.room1;
 import components.rooms.room2;
 import components.rooms.room3;
