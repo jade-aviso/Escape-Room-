@@ -1,7 +1,7 @@
 package components.rooms;
 
 import java.util.Scanner;
-import src.Puzzle;
+import components.Puzzle;
 
 public class room3 extends Puzzle {
 
