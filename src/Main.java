@@ -1,33 +1,30 @@
-package src;
-
-import components.rooms.room1;
-import components.rooms.room2;
-import components.rooms.room3;
-
-import java.util.Scanner;
+import components.rooms.Room1;
+import components.rooms.Room2;
+import components.rooms.Room3;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Escape Room Game!");
 
-        Puzzle[] rooms = new Puzzle[] {
-            new room1("The year the Berlin Wall fell.", "1989"),
-            new room2("What is 12 * 12?", 144),
-            new room3("Unscramble this: 'tpcehao'", "cheatpo") // example fake word
-        };
+        Room1 r1 = new Room1();
+        if (!r1.play()) return;
 
-        for (int i = 0; i < rooms.length; i++) {
-            System.out.println("\n--- Entering Room " + (i + 1) + " ---");
-            Puzzle currentRoom = rooms[i];
-            currentRoom.displayHint();
+        Room2 r2 = new Room2();
+        if (!r2.play()) return;
 
-            while (!currentRoom.isSolved()) {
-                System.out.print("Your answer: ");
-                String input = scanner.nextLine();
-                currentRoom.attemptSolve(input);
-            }
-        }
+        Room3 r3 = new Room3();
+        if (!r3.play()) return;
 
-        System.out.println("\n🎉 Congratulations! You escaped all the rooms!");
+        System.out.println("\n*** Congratulations! You made it out! ***");
+        System.out.println("Your prize is:");
+        System.out.println();
+        System.out.println(" _   _  ___ _____ _   _ ___ _   _  ____ ");
+        System.out.println("| \\ | |/ _ \\_   _| | | |_ _| \\ | |/ ___|");
+        System.out.println("|  \\| | | | || | | |_| || ||  \\| | |  _ ");
+        System.out.println("| |\\  | |_| || | |  _  || || |\\  | |_| |");
+        System.out.println("|_| \\_|\\___/ |_| |_| |_|___|_| \\_|\\____|");
+        
+        
+
     }
 }
