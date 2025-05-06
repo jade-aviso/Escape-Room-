@@ -5,15 +5,18 @@ import components.core.Puzzle;
 public class Room1 extends Puzzle {
     @Override
     public boolean play() {
-        int chances = 4 ;
+        int chances = 3;
         String hintAnswer;
         System.out.println("Welcome to Room 1!");
         System.out.println("Solve this riddle to move on:");
         System.out.println("What has keys but can't open locks?");
-        String answer = scanner.nextLine().trim().toLowerCase();
+        
 
 
         while(chances != 0){
+            System.out.print("Your answer: ");
+            String answer = scanner.nextLine().trim().toLowerCase();
+
             if (answer.contains("piano")) {
                 System.out.println("Correct! You may proceed.");
                 return true;
@@ -22,19 +25,20 @@ public class Room1 extends Puzzle {
                 chances--;
                 if (chances > 0) {
                     System.out.println("Try again! Chances left: " + chances);
+
                     
-                    //if it is first time losing
+                        //if it is first time losing
                             if(chances == 2){
                                 //want a hint?
                                 System.out.println("Would you like a hint? Y/N");
                                 //scanner
                                 hintAnswer = scanner.nextLine();
                                 //if yes
-                                    if(hintAnswer.equals("Y")){System.out.println("this is hint");}
+                                if(hintAnswer.equals("Y")){System.out.println("this is hint");}
                             
                             }
                         }
-                    }
+                }
 
 
             
