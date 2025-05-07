@@ -2,7 +2,7 @@ package components;
 
 public class Player extends Character {
     public Player(String name) {
-        super(name, 100, 50); // Example health & intelligence
+        super(name, 3); // Example health & intelligence
     }
 
     @Override
