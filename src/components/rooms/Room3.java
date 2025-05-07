@@ -29,7 +29,7 @@ public class Room3 extends Puzzle {
                 //if it is first time losing
                     if(chances == 2){
                         //want a hint?
-                        System.out.println("Would you like a hint? Y/N");
+                        System.out.println("Would you like a hint? y/n");
                         //scanner
                         hintAnswer = scanner.nextLine();
                         //if yes

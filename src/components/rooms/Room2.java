@@ -13,10 +13,10 @@ public class Room2 extends Puzzle {
 
         while(chances != 0){
             System.out.print("Your answer: ");
-            String code = scanner.nextLine().trim();
+            String code = scanner.nextLine().trim().toLowerCase();
 
             if (code.equals("321")) {
-                System.out.println("Finally, you made it passed the first round.");
+                System.out.println("Good job...I guess you want to escape...");
                 return true;
             } 
             else {
@@ -28,11 +28,11 @@ public class Room2 extends Puzzle {
                         //if it is first time losing
                             if(chances == 2){
                                 //want a hint?
-                                System.out.println("Would you like a hint? Y/N");
+                                System.out.println("Would you like a hint? y/n");
                                 //scanner
                                 hintAnswer = scanner.nextLine();
                                 //if yes
-                                if(hintAnswer.equalsIgnoreCase("Y")){
+                                if(hintAnswer.equalsIgnoreCase("y")){
                                     System.out.println("Your hint is: can be counted on one hand.");}
                             
                             }
