@@ -26,34 +26,46 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         String answer = scanner.nextLine();
-        if(answer.equals("A")){
-            System.out.println("instructions");
+        if(answer.equalsIgnoreCase("A")){
+            System.out.println("Instructions: 1)Guess the riddles correctly.");
+            System.out.println("              2)You have 3 chances for each room.");
+            System.out.println("              2)Don't die.");
+            System.out.println(" ");
         }
         //option two: start 
        
 
                 
             Room1 r1 = new Room1();
-            if (!r1.play()) return;
+            if (!r1.play()) {
+            scanner.close();
+            return;
+        }
 
             Room2 r2 = new Room2();
-            if (!r2.play()) return;
+            if (!r2.play()) {
+            scanner.close(); 
+            return;
+        }
 
             Room3 r3 = new Room3();
-            if (!r3.play()) return;
+            if (!r3.play()) {
+            scanner.close();
+            return;
+        }
 
             System.out.println("\n*** Congratulations! You made it out! ***");
             System.out.println("Your prize is:");
             System.out.println();
-            System.out.println(" _   _  ___ _____ _   _ ___ _   _  ____ ");
-            System.out.println("| \\ | |/ _ \\_   _| | | |_ _| \\ | |/ ___|");
-            System.out.println("|  \\| | | | || | | |_| || ||  \\| | |  _ ");
-            System.out.println("| |\\  | |_| || | |  _  || || |\\  | |_| |");
-            System.out.println("|_| \\_|\\___/ |_| |_| |_|___|_| \\_|\\____|");
+            System.out.println("  _     _____     _____ _   _  ____ ");
+            System.out.println("  | |   |_ _\\ \\   / /_ _| \\ | |/ ___|");
+            System.out.println("  | |    | | \\ \\ / / | ||  \\| | |  _ ");
+            System.out.println("  | |___ | |  \\ V /  | || |\\  | |_| |");
+            System.out.println("  |_____|___|  \\_/  |___|_| \\_|\\____|");
     
         
         
-
+        scanner.close();
     }
 
     public static final String TEXT_RED = "\u001B[31m";

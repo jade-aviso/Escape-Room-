@@ -8,7 +8,7 @@ public class Room2 extends Puzzle {
         int chances = 3;
         String hintAnswer;
         System.out.println("Welcome to Room 2!");
-        System.out.println("Guess the 3-digit code: Hint – it's 123 reversed.");
+        System.out.println("Guess the 3-digit code: ");
         
 
         while(chances != 0){
@@ -32,7 +32,8 @@ public class Room2 extends Puzzle {
                                 //scanner
                                 hintAnswer = scanner.nextLine();
                                 //if yes
-                                if(hintAnswer.equals("Y")){System.out.println("this is hint");}
+                                if(hintAnswer.equalsIgnoreCase("Y")){
+                                    System.out.println("Your hint is: can be counted on one hand.");}
                             
                             }
                         }
@@ -45,6 +46,7 @@ public class Room2 extends Puzzle {
             System.out.println(" \\ V / | | | | | | | | | | ||  _| | | | | |");
             System.out.println("  | || |_| | |_| | | |_| | || |___| |_| |_|");
             System.out.println("  |_| \\___/ \\___/  |____/___|_____|____/(_)");
+            System.out.println("You stayed trapped forever!");
             return false;
     }
 }

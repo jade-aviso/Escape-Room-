@@ -34,7 +34,8 @@ public class Room1 extends Puzzle {
                                 //scanner
                                 hintAnswer = scanner.nextLine();
                                 //if yes
-                                if(hintAnswer.equals("Y")){System.out.println("this is hint");}
+                                if(hintAnswer.equalsIgnoreCase("Y")){
+                                    System.out.println("Your hint is: Music.");}
                             
                             }
                         }
@@ -61,6 +62,7 @@ public class Room1 extends Puzzle {
         System.out.println(" \\ V / | | | | | | | | | | ||  _| | | | | |");
         System.out.println("  | || |_| | |_| | | |_| | || |___| |_| |_|");
         System.out.println("  |_| \\___/ \\___/  |____/___|_____|____/(_)");
+        System.out.println("You stayed trapped there forever!");
         return false;
     }
 }

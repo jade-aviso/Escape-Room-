@@ -10,7 +10,7 @@ public class Room3 extends Puzzle {
         String word;
 
         System.out.println("Final Room!You can't mess this up.");
-        System.out.println("Unscramble the word: 'REPAESC'");
+        System.out.println("Unscramble the word: 'olpioopqseaoeiitibohanrtpshspuopmpod'");
        
 
         
@@ -18,7 +18,7 @@ public class Room3 extends Puzzle {
         System.out.print("Your answer: ");
         word = scanner.nextLine().trim().toLowerCase();
 
-        if (word.equals("escape")) {
+        if (word.equals("hippopotomonstrosesquippedaliophobia")) {
             System.out.println("You did it! You ESCAPED!");
             return true;
         }
@@ -33,7 +33,8 @@ public class Room3 extends Puzzle {
                         //scanner
                         hintAnswer = scanner.nextLine();
                         //if yes
-                            if(hintAnswer.equals("Y")){System.out.println("this is hint");}
+                            if(hintAnswer.equalsIgnoreCase("y")){
+                                System.out.println("Your hint is: The fear of long words.");}
                     
                     }
             }
@@ -47,6 +48,7 @@ public class Room3 extends Puzzle {
     System.out.println(" \\ V / | | | | | | | | | | ||  _| | | | | |");
     System.out.println("  | || |_| | |_| | | |_| | || |___| |_| |_|");
     System.out.println("  |_| \\___/ \\___/  |____/___|_____|____/(_)");
+    System.out.println("You stayed trapped there forever!");
     return false;
     }
 }
