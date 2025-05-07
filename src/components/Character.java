@@ -2,7 +2,7 @@ package components;
 
 public abstract class Character {
     protected String name;
-    protected int life;
+    public int life = 3;
 
     public Character(String name, int life) {
         this.name = name;
@@ -24,5 +24,9 @@ public abstract class Character {
     @Override
     public String toString() {
         return name + " | Lives: " + life;
+    }
+    public void loseLife() {
+        life--;
+        System.out.println(name + " lost a life! Lives remaining: " + life);
     }
 }

@@ -1,11 +1,18 @@
 package components.rooms;
 
+import components.Player;
 import components.core.Puzzle;
 import java.util.*;
 
 public class Room2 extends Puzzle {
+    private final Player player; // Store player reference
+
+    public Room2(Player player) { // Constructor to receive player
+        this.player = player;
+    }
+
     @Override
-    public boolean play() {
+    public boolean play() { // Correct method signature (no parameters)
         int chances = 3;
         String hintAnswer;
 
@@ -31,8 +38,8 @@ public class Room2 extends Puzzle {
             String code = scanner.nextLine().trim();
 
             if (code.equals(answer)) {
-                System.out.println("Finally, you made it passed the first round.");
-                return true;
+                System.out.println("Finally, you made it past the first round.");
+                return true; // Player passed the room
             } else {
                 chances--;
                 if (chances > 0) {
@@ -49,13 +56,23 @@ public class Room2 extends Puzzle {
             }
         }
 
+        // Player failed all chances
         System.out.println("Surely you can do better than that.");
         System.out.println("__   _____  _   _   ____ ___ _____ ____  _ ");
         System.out.println("\\ \\ / / _ \\| | | | |  _ \\_ _| ____|  _ \\| |");
-        System.out.println(" \\ V / | | | | | | | | | | ||  _| | | | | |");
+        System.out.println(" \\ V / | | | | | | | | | | || 0_| | | | | |");
         System.out.println("  | || |_| | |_| | | |_| | || |___| |_| |_|");
         System.out.println("  |_| \\___/ \\___/  |____/___|_____|____/(_)");
         System.out.println("You stayed trapped forever!");
-        return false;
+
+        player.loseLife(); // Decrement lives
+
+        if (player.getLife() <= 0) {
+            System.out.println("GAME OVER! No lives left.");
+            return false; // End the game
+        } else {
+            System.out.println("You have " + player.getLife() + " lives left. Try again!");
+            return true; // Allow retry
+        }
     }
 }

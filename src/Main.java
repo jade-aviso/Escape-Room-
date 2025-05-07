@@ -33,33 +33,43 @@ public class Main {
             System.out.println("              2)Don't die.");
             System.out.println(" ");
         }
-        //option two: start 
        
         System.out.print("Enter your name, brave soul: ");
         String name = scanner.nextLine();
         Player player = new Player(name);
-        player.interact();  // a
+        player.interact();
         System.out.println("Stats: " + player);
 
-                
-            Room1 r1 = new Room1();
-            if (!r1.play()) {
-            scanner.close();
-            return;
+        boolean gameWon = false;
+        while (player.getLife() > 0 && !gameWon) {
+            // Room 1
+            boolean room1Passed = false;
+            while (!room1Passed && player.getLife() > 0) {
+                Room1 r1 = new Room1(player);
+                room1Passed = r1.play();
+            }
+            if (player.getLife() <= 0) break;
+
+            // Room 2
+            boolean room2Passed = false;
+            while (!room2Passed && player.getLife() > 0) {
+                Room2 r2 = new Room2(player);
+                room2Passed = r2.play();
+            }
+            if (player.getLife() <= 0) break;
+
+            // Room 3
+            boolean room3Passed = false;
+            while (!room3Passed && player.getLife() > 0) {
+                Room3 r3 = new Room3(player);
+                room3Passed = r3.play();
+            }
+            gameWon = room3Passed; // Only win if Room3 is completed
         }
 
-            Room2 r2 = new Room2();
-            if (!r2.play()) {
-            scanner.close(); 
-            return;
-        }
+    
 
-            Room3 r3 = new Room3();
-            if (!r3.play()) {
-            scanner.close();
-            return;
-        }
-
+        if (gameWon) {
             System.out.println("\n*** Congratulations! You made it out! ***");
             System.out.println("Your prize is:");
             System.out.println();
@@ -68,9 +78,19 @@ public class Main {
             System.out.println("  | |    | | \\ \\ / / | ||  \\| | |  _ ");
             System.out.println("  | |___ | |  \\ V /  | || |\\  | |_| |");
             System.out.println("  |_____|___|  \\_/  |___|_| \\_|\\____|");
-    
-        
-        
+        }
+        else {
+            gameOver(scanner);
+        }
+
+    scanner.close();
+    }
+
+    private static void gameOver(Scanner scanner) {
+
+        System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+        System.out.println("⣿ GAME OVER! No lives remaining. ⣿");
+        System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
         scanner.close();
     }
 
@@ -82,5 +102,4 @@ public class Main {
     public static final String TEXT_CYAN = "\u001B[36m";
     public static final String TEXT_WHITE = "\u001B[37m";
     public static final String TEXT_RESET = "\u001B[0m";
-    
 }
