@@ -1,6 +1,7 @@
 import components.rooms.Room1;
 import components.rooms.Room2;
 import components.rooms.Room3;
+import components.Player;
 import java.util.Scanner;
 
 public class Main {
@@ -34,6 +35,11 @@ public class Main {
         }
         //option two: start 
        
+        System.out.print("Enter your name, brave soul: ");
+        String name = scanner.nextLine();
+        Player player = new Player(name);
+        player.interact();  // a
+        System.out.println("Stats: " + player);
 
                 
             Room1 r1 = new Room1();

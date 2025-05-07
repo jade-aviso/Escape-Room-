@@ -1,51 +1,59 @@
 package components.rooms;
 
 import components.core.Puzzle;
+import java.util.*;
 
 public class Room1 extends Puzzle {
+
     @Override
     public boolean play() {
         int chances = 3;
         String hintAnswer;
+
+        // List of riddles
+        List<String[]> riddles = Arrays.asList(
+            new String[]{"What has keys but can't open locks?", "piano", "Music."},
+            new String[]{"What has to be broken before you can use it?", "egg", "Found in kitchens."},
+            new String[]{"I speak without a mouth and hear without ears. What am I?", "echo", "Sound."},
+            new String[]{"The more of me you take, the more you leave behind. What am I?", "footsteps", "You make me when you walk."}
+        );
+
+        // Pick one riddle randomly
+        Random rand = new Random();
+        String[] chosen = riddles.get(rand.nextInt(riddles.size()));
+        String riddle = chosen[0];
+        String answer = chosen[1].toLowerCase();
+        String hint = chosen[2];
+
         System.out.println("Welcome to Room 1!");
         System.out.println("Solve this riddle to move on:");
-        System.out.println("What has keys but can't open locks?");
-        
+        System.out.println(riddle);
 
-
-        while(chances != 0){
+        while (chances != 0) {
             System.out.print("Your answer: ");
-            String answer = scanner.nextLine().trim().toLowerCase();
+            String userAnswer = scanner.nextLine().trim().toLowerCase();
 
-            if (answer.contains("piano")) {
+            if (userAnswer.contains(answer)) {
                 System.out.println("Correct! You may proceed.");
                 return true;
-            } 
-            else {
+            } else {
                 chances--;
                 if (chances > 0) {
                     System.out.println("Try again! Chances left: " + chances);
 
-                    
-                        //if it is first time losing
-                            if(chances == 2){
-                                //want a hint?
-                                System.out.println("Would you like a hint? Y/N");
-                                //scanner
-                                hintAnswer = scanner.nextLine();
-                                //if yes
-                                if(hintAnswer.equalsIgnoreCase("Y")){
-                                    System.out.println("Your hint is: Music.");}
-                            
-                            }
+                    if (chances == 2) {
+                        System.out.println("Would you like a hint? Y/N");
+                        hintAnswer = scanner.nextLine();
+                        if (hintAnswer.equalsIgnoreCase("Y")) {
+                            System.out.println("Your hint is: " + hint);
                         }
+                    }
                 }
-
-
-            
+            }
         }
+
         System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀");
-        System.out.println("⣿⣿⣿⣿ FR?First Rooms?⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+        System.out.println("⣿⣿⣿⣿ FR?First Room?⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
         System.out.println("⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿");
         System.out.println("⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿");
         System.out.println("⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿");
