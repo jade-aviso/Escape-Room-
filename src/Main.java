@@ -1,12 +1,16 @@
 import components.rooms.Room1;
 import components.rooms.Room2;
 import components.rooms.Room3;
+import components.Character;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
+        String name;
+        System.out.println(" ");
+        System.out.println(" ");
         System.out.println("Welcome to the Escape Room Game!");
         System.out.println(TEXT_BLUE + "█████████████████████████████████" + TEXT_RESET);
         System.out.println(TEXT_GREEN + "█  █  █  █   █   █  █  █  █  █  █" + TEXT_RESET);
@@ -16,44 +20,73 @@ public class Main {
         
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println(" ");
+        System.out.println("What's your name? ");
+        name = scanner.nextLine();
+        Character newplayer = new Character(name);
+        
+        
+        System.out.println("Hi " + newplayer.name + ", not sure if you're aware but we took something from you.");
+        System.out.println("But don't worry, we are giving you, " + newplayer.name + ", a chance to find it.");
         System.out.println(" ");
 
-        System.out.println("Choose your path.");
-        System.out.println("A. Instructions");
+
+        System.out.println("Ready to start?");
+        System.out.println("A. No I need some instructions");
         System.out.println("B. START YOUR ESCAPE (enter any key)");
+        System.out.println(" ");
+        System.out.println(" ");
 
-        Scanner scanner = new Scanner(System.in);
+        
+        while(newplayer.lives > 0){
+                String answer = scanner.nextLine();
+                if(answer.equalsIgnoreCase("A")){
+                    System.out.println("Instructions: 1)Guess the riddles correctly.");
+                    System.out.println("              2)You have 3 chances for each room.");
+                    System.out.println("              3)Don't die :)");
+                    System.out.println(" ");
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------- ");
+                }
+                //option two: start 
+            
 
-        String answer = scanner.nextLine();
-        if(answer.equalsIgnoreCase("A")){
-            System.out.println("Instructions: 1)Guess the riddles correctly.");
-            System.out.println("              2)You have 3 chances for each room.");
-            System.out.println("              2)Don't die.");
-            System.out.println(" ");
-        }
-        //option two: start 
-       
+                        
+                    Room1 r1 = new Room1();
+                    if (!r1.play()) {
+                        newplayer.lives--;
+                        if(newplayer.lives>0){
+                            System.out.println("Press Enter. You have " + newplayer.lives + " lives left. Try again. ");
+                        }
+                        if ( newplayer.lives == 0) break;
+                        continue;
+                }
 
-                
-            Room1 r1 = new Room1();
-            if (!r1.play()) {
-            scanner.close();
-            return;
-        }
+                    Room2 r2 = new Room2();
+                    if (!r2.play()) {
+                        newplayer.lives--;
+                        if(newplayer.lives>0){
+                            System.out.println("Press Enter. You have " + newplayer.lives + " lives left. Try again. ");
+                        }
+                        if ( newplayer.lives == 0) break;
+                        continue;
+                }
 
-            Room2 r2 = new Room2();
-            if (!r2.play()) {
-            scanner.close(); 
-            return;
-        }
-
-            Room3 r3 = new Room3();
-            if (!r3.play()) {
-            scanner.close();
-            return;
-        }
-
+                    Room3 r3 = new Room3();
+                    if (!r3.play()) {
+                        newplayer.lives--;
+                        if(newplayer.lives>0){
+                            System.out.println("Press Enter. You have " + newplayer.lives + " lives left. Try again. ");
+                        }
+                        if ( newplayer.lives == 0) break;
+                        continue;
+                }
+                break;
+            }
+            
+            if(newplayer.lives == 0){
+                System.out.println("Game over");
+            }
+            else{
             System.out.println("\n*** Congratulations! You made it out! ***");
             System.out.println("Your prize is:");
             System.out.println();
@@ -62,6 +95,8 @@ public class Main {
             System.out.println("  | |    | | \\ \\ / / | ||  \\| | |  _ ");
             System.out.println("  | |___ | |  \\ V /  | || |\\  | |_| |");
             System.out.println("  |_____|___|  \\_/  |___|_| \\_|\\____|");
+            System.out.println("oh what we took from you was your time :) ");
+            }
     
         
         

@@ -14,6 +14,8 @@ public class Room1 extends Puzzle {
 
 
         while(chances != 0){
+            System.out.println(" ");
+            System.out.println(" ");
             System.out.print("Your answer: ");
             String answer = scanner.nextLine().trim().toLowerCase();
 
@@ -30,11 +32,11 @@ public class Room1 extends Puzzle {
                         //if it is first time losing
                             if(chances == 2){
                                 //want a hint?
-                                System.out.println("Would you like a hint? Y/N");
+                                System.out.println("Would you like a hint? y/n");
                                 //scanner
                                 hintAnswer = scanner.nextLine();
                                 //if yes
-                                if(hintAnswer.equalsIgnoreCase("Y")){
+                                if(hintAnswer.equalsIgnoreCase("y")){
                                     System.out.println("Your hint is: Music.");}
                             
                             }

@@ -8,7 +8,9 @@ public class Room3 extends Puzzle {
         int chances = 3;
         String hintAnswer;
         String word;
-
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------- ");
         System.out.println("Final Room!You can't mess this up.");
         System.out.println("Unscramble the word: 'olpioopqseaoeiitibohanrtpshspuopmpod'");
        
@@ -29,7 +31,7 @@ public class Room3 extends Puzzle {
                 //if it is first time losing
                     if(chances == 2){
                         //want a hint?
-                        System.out.println("Would you like a hint? Y/N");
+                        System.out.println("Would you like a hint? y/n");
                         //scanner
                         hintAnswer = scanner.nextLine();
                         //if yes
