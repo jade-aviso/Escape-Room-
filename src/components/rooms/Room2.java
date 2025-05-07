@@ -7,6 +7,9 @@ public class Room2 extends Puzzle {
     public boolean play() {
         int chances = 3;
         String hintAnswer;
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------- ");
         System.out.println("Welcome to Room 2!");
         System.out.println("Guess the 3-digit code: ");
         

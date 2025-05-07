@@ -8,7 +8,9 @@ public class Room3 extends Puzzle {
         int chances = 3;
         String hintAnswer;
         String word;
-
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------- ");
         System.out.println("Final Room!You can't mess this up.");
         System.out.println("Unscramble the word: 'olpioopqseaoeiitibohanrtpshspuopmpod'");
        

@@ -14,6 +14,8 @@ public class Room1 extends Puzzle {
 
 
         while(chances != 0){
+            System.out.println(" ");
+            System.out.println(" ");
             System.out.print("Your answer: ");
             String answer = scanner.nextLine().trim().toLowerCase();
 
